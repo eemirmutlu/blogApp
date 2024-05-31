@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../Kod/Not Hesaplama Uygulaması"
+		},
+		{
+			"path": "../../../Kod/Denemeler"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../php proje"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Denemeler"
+	}
+}

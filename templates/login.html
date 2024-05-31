@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.3/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://i.redd.it/paujt58s1ca61.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: "Mukta", sans-serif;
+            font-weight: 800;
+            font-style: normal;
+        }
+
+        .register-form {
+            background-color: rgba(253, 253, 253);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+            width: 900px;
+            box-shadow: 0px 0px 10px blue;
+        }
+
+        .register-form input {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #0077ff;
+            box-sizing: border-box;
+            transition: all linear .3s;
+        }
+
+        .register-form input:hover {
+            box-shadow: 0px 0px 10px rgb(0, 110, 255    );
+        }
+
+        .register-form button {
+            width: 20%;
+            padding: 5px;
+            border: none;
+            border-radius: 50px;
+            background-color: rgb(0, 59, 187);
+            color: #fff;
+            cursor: pointer;
+            transition: all linear .2s;
+        }
+
+        .register-form button:hover {
+            transition: all linear .2s;
+            background-color: rgb(255, 255, 255);
+            color: rgb(33, 0, 248);
+            box-shadow: 0px 0px 10px rgb(0, 42, 255);
+        }
+
+        .fp {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .login-links {
+            display: flex;
+            justify-content: space-evenly;
+            gap: 50px;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+
+        a {
+            color: rgb(30, 0, 255);
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        a:hover {
+            text-shadow: 0px 15px 10px rgb(172, 203, 243);
+            text-decoration: none;
+            color: rgb(155, 194, 245);
+            transition: all .2s;
+        }
+
+        .login {
+            width: 100%;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin .2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .register-form {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="container">
+        <div class="register-form">
+            <div class="logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/4922/4922073.png" style="width: 30%; height: 30%;" alt="">
+            </div>
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %} <!-- CSRF tokeni eklendi -->
+                <div class="login-links">
+                    <a href="#">Register</a>
+                </div>
+                <div class="form-group">
+                    <label for="Username"><b>Username</b></label>
+                    <input type="text" id="Username" name="username" class="form-control" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <label for="Password"><b>Password</b></label>
+                    <input type="password" id="Password" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group fp">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="form-group login">
+                    <button type="submit" class="btn btn-dark">Log In</button>
+                </div>
+            </form>
+            
+            
+        </div>
+    </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    {% comment %} <script>
+        window.addEventListener('load', function () {
+            var loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.display = 'none';
+        });
+    </script> {% endcomment %}
+    
+    
+</body>
+
+</html>

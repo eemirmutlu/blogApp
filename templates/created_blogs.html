@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+
+    {% for post in user.post_set.all %}
+    <div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <small>Yazar: {{ post.author.username }}</small>
+        <br>
+        <small>Oluşturulma Tarihi: {{ post.created_at }}</small>
+        <br>
+        <a href="{% url 'blog_detail' post_id=post.id %}">Detayları Gör</a>
+        <button style="border: 1px solid white; background-color: rgb(0, 0, 0, 0); color: black;" onclick="confirmDelete({{ post.id }})">Sil</button>
+    </div>
+    <hr> <!-- Her blog arasına yatay çizgi eklendi -->
+    {% empty %}
+    <p>Bu kullanıcı henüz blog oluşturmamış.</p>
+    {% endfor %}
+
+    <script>
+        function confirmDelete(postId) {
+            if (confirm("Bu gönderiyi silmek istediğinizden emin misiniz?")) {
+                window.location.href = "{% url 'delete_post' post_id=0 %}".replace("0", postId);
+            }
+        }
+    </script>
+    
+
+</body>
+
+</html>
